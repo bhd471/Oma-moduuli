@@ -14,6 +14,32 @@ Aloitin luomalla kaksi uutta virtuaalikonetta Vagrantin avulla. Määritin konee
     $ vagrant init debian/bullseye64
     $ notepad Vagrantfile
 
+    # -*- mode: ruby -*-
+    # vi: set ft=ruby :
+
+    $tscript = <<TSCRIPT
+    set -o verbose
+    apt-get update
+    apt-get -y install tree
+    TSCRIPT
+
+    Vagrant.configure("2") do |config|
+	config.vm.synced_folder ".", "/vagrant", disabled: true
+	config.vm.synced_folder "shared/", "/home/vagrant/shared", create: true
+	config.vm.provision "shell", inline: $tscript
+	config.vm.box = "debian/bullseye64"
+
+	    config.vm.define "kone1" do |kone1|
+		kone1.vm.hostname = "kone1"
+		kone1.vm.network "private_network", ip: "192.168.88.101"
+	 end
+
+	    config.vm.define "kone2", primary: true do |kone2|
+		kone2.vm.hostname = "kone2"
+		kone2.vm.network "private_network", ip: "192.168.88.102"
+    	end
+	
+    end
 Sitten koneet käyntiin ja kirjauduttiin sisään. Kokeilin kirjautua molemmille koneille ssh avulla.
 
         $ vagrant up
@@ -65,19 +91,19 @@ Asensin Apachen ja curlin ensin manuaalisesti.
 
 Loin /srv/salt -hakemiston, johon loin apache.sls tiedoston. Loin tilan, joka asentaa ja käynnistää Apachen, ja korvaa testisivun.
 
-    apache2:
-      pkg.installed
+        apache2:
+          pkg.installed
 
-    apache2 Service:
-      service.running:
-        - name: apache2
-        - enable: True
-        - require:
-          - pkg: apache2
-
-    /var/www/html/index.html:
-      file.managed:
-      - source: salt://apache2/index.html
+        apache2 Service:
+          service.running:
+            - name: apache2
+            - enable: True
+            - require:
+              - pkg: apache2
+    
+        /var/www/html/index.html:
+          file.managed:
+          - source: salt://apache2/index.html
     
 
 ## Tulimuuri
@@ -166,6 +192,8 @@ Tältä näyttää localhost-sivun sisältö:
 
 ### Lähteet
 
-Luettavissa: https://www.linode.com/docs/guides/configure-apache-with-salt-stack/. Luettu: 13.05.2024.
+Karvinen, T. 21.03.2023. H7 - Oma miniprojekti. Palvelinten hallinta -kurssi, kevät 2024. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/2024/configuration-management-2024-spring/#comments. Luettu: 11.05.2024.
 
-Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.firewall.html. Luettu: 13.05.2024.
+Linode. 19.10.2018. Configure Apache with Salt Stack. Luettavissa: https://www.linode.com/docs/guides/configure-apache-with-salt-stack/. Luettu: 13.05.2024.
+
+VMware. 30.04.2024. Salt states firewall. Salt project. Luettavissa: https://docs.saltproject.io/en/latest/ref/states/all/salt.states.firewall.html. Luettu: 13.05.2024.

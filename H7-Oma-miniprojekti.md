@@ -9,7 +9,12 @@ Tekijä: Janika Penttinen
 
 ## Master-slave koneiden määrittäminen
 
-Aloitin luomalla kaksi uutta virtuaalikonetta Vagrantin avulla. Määritin koneet tekemällä muutoksia Vagrantfileen.
+Aloitin luomalla kaksi uutta virtuaalikonetta Vagrantin avulla.
+
+	$ vagrant init debian/bullseye64
+ 	$ notepad VagrantFile
+  
+Määritin koneet tekemällä muutoksia Vagrantfileen.
 
 
     # -*- mode: ruby -*-

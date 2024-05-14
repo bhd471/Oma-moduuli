@@ -4,9 +4,12 @@ Moduulin tarkoituksena on nopeuttaa palveluiden asentamista. Moduulia voidaan so
 
 Projektissa luodaan Vagrantilla kaksi virtuaalikonetta, joille luodaan master-slave arkkitehtuuri. Asennetaan Apache, Ufw, Curl, Git ja Micro. 
 
+Moduulin toteuttamiseen vaaditaan Oracle VM Virtualbox sekä Vagrant. 
+
 Lisenssi: GNU General Public License v.3
 
-Tekijä: Janika Penttinen
+Tekijä: Janika Penttinen, 2024.
+
 
 ## Master-slave koneiden määrittäminen
 
@@ -194,6 +197,17 @@ Tältä näyttää localhost-sivun sisältö:
 
 ![image](https://github.com/bhd471/Palvelinten-hallinta/assets/148760837/55fd73cf-f82e-44c2-91bb-ce30ce62131e)
 
+### Oma käyttöympäristö
+
+Oman koneen speksit:
+
+- Acer Nitro N50-620 työasema
+- Windows 11 käyttöjärjestelmä
+- Intel Core i5-prosessori
+- NVIDIA GeForce RTX 3060 Ti-näytönohjain
+- 16 Gt RAM-muistia
+- 1 TB tallennustilaa
+  
 ### Lähteet
 
 Karvinen, T. 21.03.2023. H7 - Oma miniprojekti. Palvelinten hallinta -kurssi, kevät 2024. Tero Karvisen verkkosivut. Luettavissa: https://terokarvinen.com/2024/configuration-management-2024-spring/#comments. Luettu: 11.05.2024.

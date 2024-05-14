@@ -5,6 +5,7 @@ Moduulin tarkoituksena on nopeuttaa palveluiden asentamista. Moduulia voidaan so
 Projektissa luodaan Vagrantilla kaksi virtuaalikonetta, joille luodaan master-slave arkkitehtuuri. Asennetaan Apache, Ufw, Curl, Git ja Micro. 
 
 Lisenssi: GNU General Public License v.3
+
 Tekijä: Janika Penttinen
 
 ## Master-slave koneiden määrittäminen

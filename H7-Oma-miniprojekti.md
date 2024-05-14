@@ -11,8 +11,6 @@ Tekijä: Janika Penttinen
 
 Aloitin luomalla kaksi uutta virtuaalikonetta Vagrantin avulla. Määritin koneet tekemällä muutoksia Vagrantfileen.
 
-    $ vagrant init debian/bullseye64
-    $ notepad Vagrantfile
 
     # -*- mode: ruby -*-
     # vi: set ft=ruby :

@@ -186,12 +186,13 @@ Top.sls -tiedoston sisältö:
 
 Kaikki tilat ajettiin onnistuneesti:
 
-        $ sudo salt 'kone2' state.apply
+        $ sudo salt '*' state.apply
 
-![image](https://github.com/bhd471/Palvelinten-hallinta/assets/148760837/07658458-dc97-4375-83fe-2bb2aa325e03)
+![image](https://github.com/bhd471/Oma-moduuli/assets/148760837/2bb7da7d-73c8-4e94-b067-7834a802d77a)
 
 
-![image](https://github.com/bhd471/Palvelinten-hallinta/assets/148760837/44c315cf-2265-4329-8d47-6e390b8a3d32)
+![image](https://github.com/bhd471/Oma-moduuli/assets/148760837/34952f30-51ec-4fd4-990a-cb516b16e9b3)
+
 
 Tältä näyttää localhost-sivun sisältö:
 
